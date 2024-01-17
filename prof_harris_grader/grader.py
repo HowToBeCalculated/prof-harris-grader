@@ -9,7 +9,7 @@ def serialize_answer(obj: object) -> bytes:
 
 
 def create_grader(homework: str, url) -> None:
-    def grade_answer(problem: int, answer: object) -> str:
+    def grade_answer(problem: str, answer: object) -> str:
 
         params = {
             'homework': homework,
