@@ -8,7 +8,7 @@ import sys
 from urllib.parse import unquote
 
 
-MAX_BYTES = 1e5
+MAX_BYTES = 1e4
 PATTERN = r"(\d+(\.\d+)?)\s+out of\s(\d+(\.\d+)?)"
 
 GREEN = "\033[92m"
@@ -85,8 +85,7 @@ class ProfHarrisGrader:
         else:
             student_score, _, max_score, _ = [float(x or 0) for x in re.search(PATTERN, response.text).groups()]
             self.results[problem] = GradedProblem(student_score, max_score)
-
-        print(response.text)
+            print(response.text)
 
     def summary(self) -> None:
         student_score = sum(problem.score for problem in self.results.values())
