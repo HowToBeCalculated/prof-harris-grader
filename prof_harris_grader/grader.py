@@ -76,7 +76,9 @@ class ProfHarrisGrader:
         response = requests.get(self.grade_url, params=params)
         answer_in_byes = sys.getsizeof(params['answer'])
 
-        if response.status_code == 413 or answer_in_byes > MAX_BYTES:
+        if response.status_code == 502:
+            print("API is down, please reach out to Prof. Harris")
+        elif response.status_code == 413 or answer_in_byes > MAX_BYTES:
             print("Error: Trying to send object too large, check your answer!")
         elif response.status_code != 200:
             print(f"Error: {response.text}")
