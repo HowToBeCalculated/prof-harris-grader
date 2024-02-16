@@ -8,7 +8,7 @@ import sys
 from urllib.parse import unquote
 
 
-MAX_BYTES = 1e4
+MAX_BYTES = 1e5
 PATTERN = r"(\d+(\.\d+)?)\s+out of\s(\d+(\.\d+)?)"
 
 GREEN = "\033[92m"
