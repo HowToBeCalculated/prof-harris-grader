@@ -99,6 +99,7 @@ class ProfHarrisGrader:
 
         for problem_name, problem_score in self.results.items():
             score, max_score = problem_score
-            centered_score = str(score).center(4)
-            centered_max_score = str(max_score).center(7)
-            print(f"{problem_name!r:<50} | {centered_score:<6} | {centered_max_score:<9} | {get_score_with_color(score, max_score):<7}")
+            centered_score = str(score).center(6)
+            centered_max_score = str(max_score).center(9)
+            centered_pct = get_score_with_color(score, max_score).center(7)
+            print(f"{problem_name!r:<50} | {centered_score:<6} | {centered_max_score:<9} | {centered_pct:<7}")
