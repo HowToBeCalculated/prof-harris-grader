@@ -8,7 +8,7 @@ import sys
 from urllib.parse import unquote
 
 
-MAX_BYTES = 1e6  # 1MB
+MAX_BYTES = 1e4
 PATTERN = r"(\d+(\.\d+)?)\s+out of\s(\d+(\.\d+)?)"
 
 GREEN = "\033[92m"
@@ -95,11 +95,11 @@ class ProfHarrisGrader:
         print(f"Homework: {unquote(self.homework)}")
         print(f"Grade: {student_score} out of {self.max_score} ~ {pct_formatted}")
         print()
-        print(f'{"Problem Name".center(30):<30} | {"Score".center(6):<6} | {"Max Score".center(9):<9} | {"Percent".center(7):<7} |')
-        print("-" * 63)
+        print(f'{"Problem Name".center(50):<50} | {"Score".center(6):<6} | {"Max Score".center(9):<9} | {"Percent".center(7):<7} |')
+        print("-" * 83)
 
         for problem_name, problem_score in self.results.items():
             score, max_score = problem_score
             centered_score = str(score).center(4)
             centered_max_score = str(max_score).center(7)
-            print(f"{problem_name!r:<30} | {centered_score:<6} | {centered_max_score:<9} | {get_score_with_color(score, max_score):<7}")
+            print(f"{problem_name!r:<50} | {centered_score:<6} | {centered_max_score:<9} | {get_score_with_color(score, max_score):<7}")
